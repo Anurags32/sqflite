@@ -58,6 +58,12 @@ var db = await getDB();
 int rowsEffected =await db.insert(Table_Note, {Column_Note_title:mTitle,Column_Note_desc:mDesc});
 return rowsEffected>0;
 }
-
+// reding all data
+Future<List<Map<String, dynamic>>> getallnotes()async{
+  var db = await getDB();
+  // select * from note
+ List<Map<String,dynamic>> mData = await db.query(Table_Note);
+ return mData;
+}
   
 }
